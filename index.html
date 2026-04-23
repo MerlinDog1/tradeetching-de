@@ -447,6 +447,72 @@
       footer { padding: 40px 24px 24px; }
       .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
     }
+
+    /* ─── NEWSLETTER ─── */
+    .newsletter-section {
+      background: #0d0d0d;
+      border-top: 1px solid rgba(41,171,226,0.15);
+      border-bottom: 1px solid rgba(41,171,226,0.15);
+      padding: 64px 56px;
+    }
+    .newsletter-inner {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+      align-items: center;
+    }
+    .nl-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px; font-weight: 600;
+      letter-spacing: .4em; text-transform: uppercase;
+      color: var(--cyan); margin-bottom: 12px;
+    }
+    .newsletter-text h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(20px, 2vw, 30px);
+      font-weight: 700; color: var(--white);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .newsletter-text h2 em { color: var(--cyan); font-style: normal; }
+    .newsletter-text p {
+      font-family: 'Cabin', sans-serif;
+      font-size: 13px; line-height: 1.75;
+      color: rgba(255,255,255,.55);
+    }
+    .newsletter-form { display: flex; flex-direction: column; gap: 12px; }
+    .nl-row {
+      display: flex; gap: 0;
+      border: 1px solid rgba(41,171,226,0.4);
+    }
+    .nl-row input {
+      flex: 1;
+      padding: 14px 16px;
+      background: transparent;
+      border: none; outline: none;
+      font-family: 'Cabin', sans-serif; font-size: 13px;
+      color: var(--white);
+    }
+    .nl-row input::placeholder { color: rgba(255,255,255,.35); }
+    .nl-btn {
+      padding: 14px 24px;
+      background: var(--cyan); color: var(--black);
+      border: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: .25em; text-transform: uppercase;
+      cursor: pointer; white-space: nowrap;
+      transition: opacity .2s;
+    }
+    .nl-btn:hover { opacity: .85; }
+    .nl-note {
+      font-family: 'Cabin', sans-serif;
+      font-size: 11px; color: rgba(255,255,255,.3);
+      letter-spacing: .05em;
+    }
+    @media (max-width: 768px) {
+      .newsletter-section { padding: 48px 24px; }
+      .newsletter-inner { grid-template-columns: 1fr; gap: 32px; }
+    }
   </style>
 </head>
 <body>
@@ -653,6 +719,24 @@
     </div>
   </div>
 </section>
+
+<!-- ─── NEWSLETTER ─── -->
+<div class="newsletter-section">
+  <div class="newsletter-inner">
+    <div class="newsletter-text">
+      <div class="nl-eyebrow">Newsletter</div>
+      <h2>Auf dem Laufenden <em>bleiben</em></h2>
+      <p>Erhalten Sie Aktuelles zu neuen Materialien, Verfahren und Projekten — direkt in Ihr Postfach.</p>
+    </div>
+    <form class="newsletter-form" onsubmit="event.preventDefault(); this.innerHTML='<p style=\'font-family:Montserrat,sans-serif;font-size:11px;font-weight:700;letter-spacing:.2em;color:#000;text-align:center;\'>ANGEMELDET! Danke.</p>';">
+      <div class="nl-row">
+        <input type="email" placeholder="Ihre E-Mail-Adresse" required>
+        <button type="submit" class="nl-btn">Anmelden →</button>
+      </div>
+      <p class="nl-note">Kein Spam. Sie können sich jederzeit abmelden.</p>
+    </form>
+  </div>
+</div>
 
 <!-- ─── CONTACT BANNER ─── -->
 <div class="contact-section" id="contact">
